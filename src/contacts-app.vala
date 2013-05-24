@@ -238,6 +238,13 @@ public class Contacts.App : Gtk.Application {
     }
   }
 
+  private string truncate(string str, int len) {
+    if (str.length > len)
+      return str.substring(0, len) + "...";
+    else
+      return str;
+}
+
   private void create_window () {
     var action = new GLib.SimpleAction ("quit", null);
     action.activate.connect (() => { window.destroy (); });
@@ -381,7 +388,7 @@ public class Contacts.App : Gtk.Application {
 
         var name = _("Editing");
         if (contacts_pane.contact != null) {
-          name += " %s".printf (contacts_pane.contact.display_name);
+          name += " %s".printf (truncate(contacts_pane.contact.display_name, 30));
         }
 
         contact_name.set_markup (Markup.printf_escaped ("<b>%s</b>", name));
