@@ -448,6 +448,12 @@ public class Contacts.AvatarDialog : Dialog {
 	  }
 	}
 
+	/* Nudge the Vala garbage collector into disposing the Cheese widget.
+	 * See:
+	 *
+	 */
+	cheese = null;
+
 	this.destroy ();
       });
 
