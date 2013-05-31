@@ -456,6 +456,7 @@ public class Contacts.AvatarDialog : Dialog {
 	cheese = null;
 #endif
 
+	/* FIXME: This is causing the disappearance of GNOME top bar */
 	this.destroy ();
       });
 
